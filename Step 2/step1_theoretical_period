@@ -6,4 +6,8 @@ Created on Sat Feb 29 13:14:06 2020
 @author: taradonohue
 """
 
-import numpy
+import numpy as np
+
+list1 = [10,12,14,16,18]
+array1=np.array(list1)
+
