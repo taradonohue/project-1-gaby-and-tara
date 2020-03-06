@@ -7,10 +7,12 @@ Created on Wed Mar  4 13:15:49 2020
 """
 import os
 import numpy as np 
+import matplotlib.pyplot as plt
 path = "/Users/gackermannlogan/mu_code/data_capture/"
 os.chdir(path)
 print(os.getcwd())
 fin = open("10inch-Trial.csv", "r")
+
 def find_tilt_x(acc_x, acc_y, acc_z):
     y_denominator = np.sqrt((y * 2) + ((z * 2)))
     x_numerator = x
@@ -29,7 +31,14 @@ def find_tilt_z(acc_x,acc_y,acc_z):
     angle_z = np.atan2(z_numerator, x_and_y_denominator)
     np.degrees(angle_z)
     return np.degrees(angle_z)
-for ln in fin:
-    ln.split(",")
-    
-    print(ln)
+
+list = (np.genfromtxt(fin, delimiter = ","))
+x = list[0:1]
+y = list[1]
+z = list[2]
+print(x)
+#plt.plot()
+#plt.title()
+#plt.xlabel()
+#plt.ylabel()
+#plt.show()
