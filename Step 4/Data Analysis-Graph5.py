@@ -35,10 +35,10 @@ def find_tilt_z(acc_x,acc_y,acc_z):
 
 
 array = (np.genfromtxt(fin, delimiter = ","))
-x = np.array(array[:,0])
-y = np.array(array[:,1])
-z = np.array(array[:,2])
-time = np.array(array[:,3])
+x = np.array(array[800:1048,0])
+y = np.array(array[800:1048,1])
+z = np.array(array[800:1048,2])
+time = np.array(array[800:1048,3])
 x_axis = np.array(find_tilt_x(x,y,z))
 y_axis = np.array(find_tilt_y(x,y,z))
 z_axis = np.array(find_tilt_z(x,y,z))
