@@ -45,9 +45,10 @@ z_axis = np.array(find_tilt_z(x,y,z))
 print(x)
 #arraytograph = np.array(z_axis,time)
 plt.plot(time, z_axis)
-plt.title()
-plt.xlabel()
-plt.ylabel()
+plt.title("Theta v. Time")
+plt.xlabel("Time")
+plt.ylabel("Theta")
 plt.show()
+
 
 #test 2

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Mon Mar 23 14:41:30 2020
+Created on Wed Mar  4 13:15:49 2020
 
 @author: gackermannlogan
 """
@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 path = "/Users/gackermannlogan/mu_code/data_capture/"
 os.chdir(path)
 print(os.getcwd())
-fin = open("12inch-Trial.csv", "r")
+fin = open("10inch-Trial.csv", "r")
 
 def find_tilt_x(acc_x, acc_y, acc_z):
     y_denominator = np.sqrt((y ** 2) + (z ** 2))
@@ -34,19 +34,19 @@ def find_tilt_z(acc_x,acc_y,acc_z):
 
 
 array = (np.genfromtxt(fin, delimiter = ","))
-x = np.array(array[888:1004,0])
-y = np.array(array[888:1004,1])
-z = np.array(array[888:1004,2])
-time = np.array(array[888:1004,3])
+x = np.array(array[960:1087,0])
+y = np.array(array[960:1087,1])
+z = np.array(array[960:1087,2])
+time = np.array(array[960:1087,3])
 x_axis = np.array(find_tilt_x(x,y,z))
 y_axis = np.array(find_tilt_y(x,y,z))
 z_axis = np.array(find_tilt_z(x,y,z))
 print(x)
 #arraytograph = np.array(z_axis,time)
 plt.plot(time, z_axis)
-plt.title()
-plt.xlabel()
-plt.ylabel()
+plt.title("Theta v. Time")
+plt.xlabel("Time")
+plt.ylabel("Theta")
 plt.show()
 
 #test 2
