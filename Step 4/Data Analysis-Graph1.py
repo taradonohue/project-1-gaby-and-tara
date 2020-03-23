@@ -32,15 +32,21 @@ def find_tilt_z(acc_x,acc_y,acc_z):
     np.degrees(angle_z)
     return np.degrees(angle_z)
 
+
 array = (np.genfromtxt(fin, delimiter = ","))
 x = np.array(array[:,0])
 y = np.array(array[:,1])
 z = np.array(array[:,2])
+time = np.array(array[:,3])
 x_axis = np.array(find_tilt_x(x,y,z))
 y_axis = np.array(find_tilt_y(x,y,z))
 z_axis = np.array(find_tilt_z(x,y,z))
-plt.plot(x,y,z)
+print(x)
+#arraytograph = np.array(z_axis,time)
+plt.plot(time, z_axis)
 plt.title()
 plt.xlabel()
 plt.ylabel()
 plt.show()
+
+#test 2
