@@ -20,7 +20,7 @@ y = np.array(array[:,1])
 z = np.array(array[:,2])
 time = np.array(array[:,3])
 
-plt.plot(time, z)
+plt.plot(time, x, y, z)
 plt.title("Acceleration v. Time")
 plt.xlabel("Time")
 plt.ylabel("Acceleration")
