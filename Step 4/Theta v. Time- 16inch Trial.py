@@ -33,7 +33,6 @@ def find_tilt_z(acc_x,acc_y,acc_z):
     np.degrees(angle_z)
     return np.degrees(angle_z)
 
-
 array = (np.genfromtxt(fin, delimiter = ","))
 x = np.array(array[900:1096,0])
 y = np.array(array[900:1096,1])
@@ -42,8 +41,7 @@ time = np.array(array[900:1096,3])
 x_axis = np.array(find_tilt_x(x,y,z))
 y_axis = np.array(find_tilt_y(x,y,z))
 z_axis = np.array(find_tilt_z(x,y,z))
-print(x)
-#arraytograph = np.array(z_axis,time)
+
 plt.plot(time, z_axis)
 plt.title("Theta v. Time")
 plt.xlabel("Time")
@@ -51,4 +49,3 @@ plt.ylabel("Theta")
 plt.show()
 
 
-#test 2

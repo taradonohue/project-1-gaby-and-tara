@@ -42,7 +42,7 @@ time = np.array(array[800:1048,3])
 x_axis = np.array(find_tilt_x(x,y,z))
 y_axis = np.array(find_tilt_y(x,y,z))
 z_axis = np.array(find_tilt_z(x,y,z))
-print(x)
+
 plt.plot(time, z_axis)
 plt.title("Theta v. Time")
 plt.xlabel("Time")
