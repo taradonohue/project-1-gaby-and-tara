@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Mon Mar 23 14:45:21 2020
+Created on Wed Mar 25 15:48:09 2020
 
 @author: gackermannlogan
 """
@@ -49,4 +49,11 @@ plt.xlabel("Time")
 plt.ylabel("Theta")
 plt.show()
 
-
+plt.plot(time, x)
+plt.plot(time, y)
+plt.plot(time, z)
+plt.legend("x" "y" "z")
+plt.title("Acceleration v. Time")
+plt.xlabel("Time")
+plt.ylabel("Acceleration")
+plt.show()
