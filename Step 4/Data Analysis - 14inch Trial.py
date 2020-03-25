@@ -9,6 +9,7 @@ Created on Wed Mar 25 15:46:09 2020
 import os
 import numpy as np 
 import matplotlib.pyplot as plt
+import scipy.signal as sig
 path = "/Users/gackermannlogan/mu_code/data_capture/"
 os.chdir(path)
 print(os.getcwd())
@@ -57,4 +58,10 @@ plt.legend("x" "y" "z")
 plt.title("Acceleration v. Time")
 plt.xlabel("Time")
 plt.ylabel("Acceleration")
+plt.show()
+
+filtered_y = sig.medfilt(y)
+plt.plot(time, filtered_y)
+peaks = sig.find_peaks(filtered_y)
+print(peaks)
 plt.show()

@@ -1,6 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
+Created on Wed Mar 25 16:39:18 2020
+
+@author: gackermannlogan
+"""
+
+"""
 Created on Wed Mar 25 15:48:09 2020
 
 @author: gackermannlogan
@@ -9,6 +15,7 @@ Created on Wed Mar 25 15:48:09 2020
 import os
 import numpy as np 
 import matplotlib.pyplot as plt
+import scipy.signal as sig
 path = "/Users/gackermannlogan/mu_code/data_capture/"
 os.chdir(path)
 print(os.getcwd())
@@ -56,4 +63,19 @@ plt.legend("x" "y" "z")
 plt.title("Acceleration v. Time")
 plt.xlabel("Time")
 plt.ylabel("Acceleration")
+plt.show()
+
+filtered_y = sig.medfilt(y)
+plt.plot(time, filtered_y)
+peaks = sig.find_peaks(filtered_y)
+new_peaks = tuple(peaks[0])
+counter = 0
+for i in (peaks):
+    if (i == new_peaks[counter]):
+        break 
+    if counter == 0:   
+        integer_peaks = tuple(peaks[i])
+        new_peaks = new_peaks + time[800 + integer_peaks]  
+print(new_peaks)
+print(peaks)
 plt.show()
