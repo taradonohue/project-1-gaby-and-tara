@@ -34,7 +34,6 @@ def find_tilt_z(acc_x,acc_y,acc_z):
     np.degrees(angle_z)
     return np.degrees(angle_z)
 
-
 array = (np.genfromtxt(fin, delimiter = ","))
 x = np.array(array[708:998,0])
 y = np.array(array[708:998,1])
@@ -50,7 +49,6 @@ plt.xlabel("Time")
 plt.ylabel("Theta")
 plt.show()
 
-
 plt.plot(time, x)
 plt.plot(time, y)
 plt.plot(time, z)
@@ -60,8 +58,11 @@ plt.xlabel("Time")
 plt.ylabel("Acceleration")
 plt.show()
 
-filtered_y = sig.medfilt(y)
-plt.plot(time, filtered_y)
-peaks = sig.find_peaks(filtered_y)
-print(peaks)
+filtered_y = sig.medfilt(y_axis)
+peaks = sig.find_peaks(filtered_y)[0]
+newpeaks = peaks + 708
+plt.plot(time[newpeaks], filtered_y)
+plt.title("Period")
+plt.xlabel("Time")
+plt.ylabel("Theta (degrees)")
 plt.show()

@@ -60,8 +60,13 @@ plt.xlabel("Time")
 plt.ylabel("Acceleration")
 plt.show()
 
-filtered_y = sig.medfilt(y)
+filtered_y = sig.medfilt(y_axis)
 plt.plot(time, filtered_y)
-peaks = sig.find_peaks(filtered_y)
-print(peaks)
+peaks = sig.find_peaks(filtered_y)[0]
+newpeaks = peaks + 888
+plt.plot(time, y, 'r-', time[newpeaks], y[filtered_y], 'b.')
+plt.title("Period")
+plt.xlabel("Time")
+plt.ylabel("Theta (degrees)")
+plt.show()
 plt.show()
