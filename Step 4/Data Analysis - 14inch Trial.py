@@ -5,7 +5,6 @@ Created on Wed Mar 25 15:46:09 2020
 
 @author: gackermannlogan
 """
-
 import os
 import numpy as np 
 import matplotlib.pyplot as plt
@@ -60,9 +59,13 @@ plt.show()
 
 filtered_y = sig.medfilt(y_axis)
 peaks = sig.find_peaks(filtered_y)[0]
-newpeaks = peaks + 708
-plt.plot(time[newpeaks], filtered_y)
+indextoremove = [1,2,4,5,7,9,12,14,16,17,19,20,21,23,24, 26]
+newpeaks = np.delete(peaks, indextoremove)
+plt.plot(time, filtered_y, 'r-', time[newpeaks], filtered_y[newpeaks], 'b.')
 plt.title("Period")
 plt.xlabel("Time")
 plt.ylabel("Theta (degrees)")
 plt.show()
+def period():
+    
+
