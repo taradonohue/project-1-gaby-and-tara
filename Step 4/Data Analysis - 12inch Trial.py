@@ -5,7 +5,7 @@ Created on Wed Mar 25 15:45:10 2020
 
 @author: gackermannlogan
 """
-#Project 1 Step 5 
+#Project 1 Step 4 
 #Authors: Gaby Ackerman Logan and Tara Donodue 
 #Hours spent: 6 total 
 #Imports
@@ -20,6 +20,9 @@ fin = open("12inch-Trial.csv", "r")
 
 #Functions
 def find_tilt_x(acc_x, acc_y, acc_z):
+#This function takes 3 parameters of the acceleration in the x, y, and z directions. 
+#This function calculatesthe angle on the x-axis in degrees
+#it returns the the calculated angle
     y_denominator = np.sqrt((y ** 2) + (z ** 2))
     x_numerator = x
     angle_x = np.arctan(x_numerator / y_denominator)
@@ -27,6 +30,9 @@ def find_tilt_x(acc_x, acc_y, acc_z):
     return np.degrees(angle_x)
 
 def find_tilt_y(acc_x, acc_y, acc_z):
+#This function takes 3 parameters of the acceleration in the x, y, and z directions. 
+#This function calculatesthe angle on the y-axis in degrees
+#it returns the the calculated angle
     x_denominator = np.sqrt((x ** 2) + (z ** 2))
     y_numerator = y
     angle_y = np.arctan(y_numerator / x_denominator)
@@ -34,6 +40,9 @@ def find_tilt_y(acc_x, acc_y, acc_z):
     return np.degrees(angle_y)
 
 def find_tilt_z(acc_x,acc_y,acc_z):
+#This function takes 3 parameters of the acceleration in the x, y, and z directions. 
+#This function calculatesthe angle on the z-axis in degrees
+#it returns the the calculated angle
     x_and_y_denominator = np.sqrt((y ** 2) + (x ** 2))
     z_numerator = z
     angle_z = np.arctan(z_numerator / x_and_y_denominator)
@@ -41,6 +50,9 @@ def find_tilt_z(acc_x,acc_y,acc_z):
     return np.degrees(angle_z)
 
 def find_period():
+#This function takes no parameters 
+#This function calculatesthe period using the calculated angles and specific time interval
+#It prints the period calculated and the graph showing the maximas used in the calculation 
     filtered_y = sig.medfilt(y_axis)
     peaks = sig.find_peaks(filtered_y)[0]
     indextoremove = [1,3,4,6,7,9,10,11,13,14]
@@ -60,6 +72,7 @@ def find_period():
     plt.show()
 
 #Main Script
+#The time interval is set and the acceleration, theta and period graphs are graphed
 array = (np.genfromtxt(fin, delimiter = ","))
 x = np.array(array[888:1004,0])
 y = np.array(array[888:1004,1])
