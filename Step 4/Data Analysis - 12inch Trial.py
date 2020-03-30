@@ -33,7 +33,24 @@ def find_tilt_z(acc_x,acc_y,acc_z):
     angle_z = np.arctan(z_numerator / x_and_y_denominator)
     np.degrees(angle_z)
     return np.degrees(angle_z)
-
+def find_period():
+    filtered_y = sig.medfilt(y_axis)
+    peaks = sig.find_peaks(filtered_y)[0]
+    indextoremove = [1,3,4,6,7,9,10,11,13,14]
+    newpeaks = np.delete(peaks, indextoremove)
+    time = np.array(array[888:1004,3])
+    change = 0
+    timeinput = time[newpeaks]
+    for i in range(4):
+        difference_in_time = timeinput[i+1] - timeinput[i]
+        change = change + difference_in_time
+    period = change/(len(timeinput)-1)
+    print(period)
+    plt.plot(time, filtered_y, 'r-', time[newpeaks], filtered_y[newpeaks], 'b.')
+    plt.title("Period")
+    plt.xlabel("Time")
+    plt.ylabel("Theta (degrees)")
+    plt.show()
 
 array = (np.genfromtxt(fin, delimiter = ","))
 x = np.array(array[888:1004,0])
@@ -60,12 +77,13 @@ plt.xlabel("Time")
 plt.ylabel("Acceleration")
 plt.show()
 
-filtered_y = sig.medfilt(y_axis)
-peaks = sig.find_peaks(filtered_y)[0]
-indextoremove = [1,3,4,6,7,9,10,11,13,14]
-newpeaks = np.delete(peaks, indextoremove)
-plt.plot(time, filtered_y, 'r-', time[newpeaks], filtered_y[newpeaks], 'b.')
-plt.title("Period")
-plt.xlabel("Time")
-plt.ylabel("Theta (degrees)")
-plt.show()
+find_period()
+#filtered_y = sig.medfilt(y_axis)
+#peaks = sig.find_peaks(filtered_y)[0]
+#indextoremove = [1,3,4,6,7,9,10,11,13,14]
+#newpeaks = np.delete(peaks, indextoremove)
+#plt.plot(time, filtered_y, 'r-', time[newpeaks], filtered_y[newpeaks], 'b.')
+#plt.title("Period")
+#plt.xlabel("Time")
+#plt.ylabel("Theta (degrees)")
+#plt.show()

@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-list1 = [10.0,12.0,14.0,16.0,18.0]
+list1 = [0.254,0.305,0.356,0.406,0.457]
 array1=np.array(list1)
 def period(array) :
     n = len(array1)
@@ -14,6 +14,6 @@ x = list1
 y = array1
 plt.scatter(x, y,)
 plt.title('Estimated Period of Pendulum')
-plt.xlabel('Length (in)')
+plt.xlabel('Length (m)')
 plt.ylabel('Period (s)')
 plt.show()
