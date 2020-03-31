@@ -1,6 +1,6 @@
 #Project 1
 #NAME(S): Gaby Ackermann Logan and Tara Donohue
-#HOURS SPENT:
+#HOURS SPENT: 1
 path = "/Users/gackermannlogan/Documents/Github/project-1-gaby-tara/Step/3"
 import microbit as mb
 import radio  # Needs to be imported separately
