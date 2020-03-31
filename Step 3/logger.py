@@ -1,6 +1,6 @@
 #Project 1
 #NAME(S): Gaby Ackermann Logan and Tara Donohue
-#HOURS WORKED ON:
+#HOURS WORKED ON: 2
 
 import microbit as mb
 import radio  # Needs to be imported separately
